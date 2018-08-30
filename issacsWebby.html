@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.slidecontainer {
+	width: 100%;
+    height: 100%;
+	/* background-size: contain; */
+	/* background-color: red; */
+	background-image: url('/Users/R2ro/Downloads/simsBG.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	/* background-opacity: .5; */
+	overflow: hidden;
+}
+
+
+
+.left, .right {
+	position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    float: left;
+    width: 48%;
+}
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: red;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 24px;
+    border: 0;
+    background: blue;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- <h1>How do you feel?</h1> -->
+
+<div class="slidecontainer">
+	<div class="left">
+   		<h3>Bladder</h3>
+  		<input type="range" min="1" max="5" value="5" class="slider" id="bladderRange">
+  		<p>Value: <span id="bladderValue"></span></p>
+
+		<h3>Hunger</h3>
+  		<input type="range" min="1" max="5" value="5" class="slider" id="hungerRange">
+    	<p>Value: <span id="hungerValue"></span></p>
+
+  		<h3>Energy</h3>
+  		<input type="range" min="1" max="5" value="5" class="slider" id="energyRange">
+		<p>Value: <span id="energyValue"></span></p>
+	</div>
+
+    <div class="right">
+   		<h3>Fun</h3>
+  		<input type="range" min="1" max="5" value="5" class="slider" id="funRange">
+  		<p>Value: <span id="funValue"></span></p>
+
+  		<h3>Social</h3>
+  		<input type="range" min="1" max="5" value="50" class="slider" id="socialRange">
+    	<p>Value: <span id="socialValue"></span></p>
+
+  		<h3>Hygene</h3>
+  		<input type="range" min="1" max="5" value="50" class="slider" id="hygeneRange">
+  		<p>Value: <span id="hygeneValue"></span></p>
+	</div>
+</div>
+
+<script>
+
+var bladderSlider = document.getElementById("bladderRange");
+var bladderOutput = document.getElementById("bladderValue");
+bladderOutput.innerHTML = bladderSlider.value;
+
+var hungerSlider = document.getElementById("hungerRange");
+var hungerOutput = document.getElementById("hungerValue");
+hungerOutput.innerHTML = hungerSlider.value;
+
+var energySlider = document.getElementById("energyRange");
+var energyOutput = document.getElementById("energyValue");
+energyOutput.innerHTML = energySlider.value;
+
+var socialSlider = document.getElementById("socialRange");
+var socialOutput = document.getElementById("socialValue");
+socialOutput.innerHTML = hungerSlider.value;
+
+var hygeneSlider = document.getElementById("hygeneRange");
+var hygeneOutput = document.getElementById("hygeneValue");
+hygeneOutput.innerHTML = hygeneSlider.value;
+
+var funSlider = document.getElementById("funRange");
+var funOutput = document.getElementById("funValue");
+funOutput.innerHTML = funSlider.value;
+
+var bladderValue, hungerValue, energyValue, socialValue, hygeneValue, funValue;
+
+bladderSlider.oninput = function() {
+  	bladderValue = bladderOutput.innerHTML = this.value;
+}
+
+energySlider.oninput = function() {
+  	energyValue = energyOutput.innerHTML = this.value;
+}
+
+socialSlider.oninput = function() {
+  	socialValue = socialOutput.innerHTML = this.value;
+}
+
+hygeneSlider.oninput = function() {
+ 	hygeneValue = hygeneOutput.innerHTML = this.value;
+}
+
+hungerSlider.oninput = function() {
+  	hungerValue = hungerOutput.innerHTML = this.value;
+  //p = this.value;
+}
+
+funSlider.oninput = function() {
+	// funValue = funOutput.innerHTML = this.value;
+	funOutput.innerHTML = parseInt(bladderValue)+parseInt(hungerValue);//int (bladderOutput.innerHTML) + int(hungerOutput.innerHTML)//this.value;
+}
+
+</script>
+<button type="button" onclick="alert('Hello world!')">Submit</button>
+
+</body>
+</html>
